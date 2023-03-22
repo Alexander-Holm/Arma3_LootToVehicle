@@ -10,13 +10,20 @@ class CfgPatches
 
 class CfgFunctions
 {
-    // Tag
+    // TAG
+    // Every function registered here gets a name like:
+    // TAG_fnc_functionName
+    // Example calling the function: 
+    // [param1, param2] call LootToVehicle_fnc_lootStart;
     class LootToVehicle
     {
         // Arma 3 function-viewer categories
+        // Have to use backslash in file-/folderpath
         class Main{
-            file = "LootToVehicle";
-            class main{ postInit = 1;}
+            class main{ 
+                file = "LootToVehicle\fn_main.sqf";
+                postInit = 1;
+            }
         }
         class Loot
         {            
