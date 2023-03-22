@@ -18,12 +18,14 @@ class CfgFunctions
             file = "LootToVehicle";
             class main{ postInit = 1;}
         }
-        class Looting
-        {
-            file = "LootToVehicle\functions";
+        class Loot
+        {            
+            class lootStart{ file = "LootToVehicle\functions\loot\fn_lootStart.sqf"; };
+
+            file = "LootToVehicle\functions\loot\functions";
             class lootBodies{};
             class lootGround{};
-            class emptyAddedBackpacks{};            
+            class emptyAddedBackpacks{};
         };
         class Scrollmenu{
             file = "LootToVehicle\functions\scrollmenu";
