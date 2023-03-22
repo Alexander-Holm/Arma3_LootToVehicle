@@ -16,15 +16,15 @@ if(_foundLoot) then {
 	[_previousBackpacksCount, _vehicle] call LootToVehicle_fnc_emptyAddedBackpacks;
 
 	hint parseText format ["
-		<t size='1.25' align='left' >Loot transferred to this vehicle</t> <br/>
-		<t align='left' >%1 bodies looted</t> <br/>
-		<t align='left' >%2 items looted from the ground</t>
+		<t align='left' size='1.25'>Loot transferred to this vehicle</t> <br/>
+		<t align='left'>%1 bodies looted</t> <br/>
+		<t align='left'>%2 items looted from the ground</t>
 	", _countBodies, _countGround]; 
 	sleep 8;
 	hintSilent ""; sleep 0.5;
 }
 else{
-	hint "<t size='1.25'>No loot found</t>"; 
+	hint parseText "<t size='1.15'>No loot found</t>"; 
 	sleep 8;
 	hintSilent ""; sleep 0.5;
 };
