@@ -51,3 +51,5 @@ _nearbyBodies = [];
 	// NOTE: this also removes items that were not looted, might need to be changed...
 	_body setUnitLoadout (configFile >> "EmptyLoadout");
 } forEach _nearbyBodies;
+
+count _nearbyBodies; // Return

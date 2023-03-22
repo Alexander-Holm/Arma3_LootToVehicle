@@ -35,3 +35,5 @@ _invisibleContainers append (_vehicle nearObjects ["WeaponHolder", _lootDistance
 	clearItemCargoGlobal _container;
 	clearBackpackCargoGlobal _container;
 } forEach _invisibleContainers;
+
+count _invisibleContainers; // Return
