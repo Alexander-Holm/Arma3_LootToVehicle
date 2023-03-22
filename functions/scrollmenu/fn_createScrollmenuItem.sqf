@@ -5,7 +5,7 @@ _title = format["<t color='%1'>Loot to vehicle</t>", _color];
 _icon = format["<img color='%1' size='2' image='a3\ui_f\data\igui\cfg\actions\loadvehicle_ca.paa' />", _color];
 _onScrollmenuClick = {
 	_vehicle = _this select 3; // arguments passed down from addAction
-	_lootDistance = 100;
+	_lootDistance = 50;
 	[_vehicle, _lootDistance] call LootToVehicle_fnc_lootStart;
 };
 _arguments = _vehicle;
