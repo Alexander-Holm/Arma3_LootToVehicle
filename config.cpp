@@ -25,8 +25,7 @@ class CfgFunctions
                 postInit = 1;
             }
         }
-        class Loot
-        {            
+        class Loot{            
             class lootStart{ file = "LootToVehicle\functions\loot\fn_lootStart.sqf"; };
 
             file = "LootToVehicle\functions\loot\functions";
@@ -39,5 +38,11 @@ class CfgFunctions
             class createScrollmenuItem{};
             class removeScrollmenuItem{};
         };
+        class Hints{
+            file = "LootToVehicle\functions\hints";
+            class hintTimer{};
+            class hintSuccess{};
+            class hintNotFound{};
+        }
     }
 };

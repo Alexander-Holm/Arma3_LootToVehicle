@@ -15,16 +15,8 @@ if(_foundLoot) then {
 	// Some backpacks contain items by default when created, remove those items.
 	[_previousBackpacksCount, _vehicle] call LootToVehicle_fnc_emptyAddedBackpacks;
 
-	hint parseText format ["
-		<t align='left' size='1.25'>Loot transferred to this vehicle</t> <br/>
-		<t align='left'>%1 bodies looted</t> <br/>
-		<t align='left'>%2 items looted from the ground</t>
-	", _countBodies, _countGround]; 
-	sleep 8;
-	hintSilent ""; sleep 0.5;
+	[_countBodies, _countGround] call LootToVehicle_fnc_hintSuccess;
 }
 else{
-	hint parseText "<t size='1.15'>No loot found</t>"; 
-	sleep 8;
-	hintSilent ""; sleep 0.5;
+	call LootToVehicle_fnc_hintNotFound;
 };
