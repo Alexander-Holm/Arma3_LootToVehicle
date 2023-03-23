@@ -2,9 +2,9 @@ class CfgPatches
 {
 	class LootToVehicle
 	{
-		// Meta information for editor
 		name = "Loot To Vehicle";
 		author = "CseRoQ";
+        requiredVersion = 2.02;
 	};
 };
 
@@ -30,8 +30,9 @@ class CfgFunctions
 
             file = "LootToVehicle\functions\loot\functions";
             class lootBodies{};
-            class lootGround{};
+            class lootGround{};            
             class emptyAddedBackpacks{};
+            class lootContainer{};
         };
         class Scrollmenu{
             file = "LootToVehicle\functions\scrollmenu";
