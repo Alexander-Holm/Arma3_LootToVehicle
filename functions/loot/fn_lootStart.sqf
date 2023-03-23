@@ -5,7 +5,8 @@ _vehicle = _this; // Parameter
 _previousBackpacksCount = count backpackCargo _vehicle;
 
 // Loot
-_lootDistance = 30;
+_lootDistance = LootToVehicle_lootDistance;
+hint str _lootDistance; sleep 5;
 _countBodies = [_vehicle, _lootDistance] call LootToVehicle_fnc_lootBodies;
 _countGround = [_vehicle, _lootDistance] call LootToVehicle_fnc_lootGround;
 

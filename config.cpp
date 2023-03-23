@@ -19,13 +19,7 @@ class CfgFunctions
     {
         // Arma 3 function-viewer categories
         // Have to use backslash in file-/folderpath
-        class Main{
-            class main{ 
-                file = "LootToVehicle\fn_main.sqf";
-                postInit = 1;
-            }
-        }
-        class Loot{            
+        class Loot{
             class lootStart{ file = "LootToVehicle\functions\loot\fn_lootStart.sqf"; };
 
             file = "LootToVehicle\functions\loot\functions";
@@ -42,9 +36,20 @@ class CfgFunctions
         };
         class Hints{
             file = "LootToVehicle\functions\hints";
-            class hintTimer{};
             class hintSuccess{};
             class hintNotFound{};
+            class hintTimer{};
         }
     }
+};
+
+class Extended_PreInit_EventHandlers {
+    class LootToVehicle {
+        init = "call compile preprocessFileLineNumbers 'LootToVehicle\settings.sqf'";
+    };
+};
+class Extended_PostInit_EventHandlers {
+    class LootToVehicle {
+        init = "call compile preprocessFileLineNumbers 'LootToVehicle\main.sqf'";
+    };
 };
