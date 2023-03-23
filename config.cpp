@@ -33,6 +33,7 @@ class CfgFunctions
             class lootGround{};            
             class emptyAddedBackpacks{};
             class lootContainer{};
+            class clearContainer{};
         };
         class Scrollmenu{
             file = "LootToVehicle\functions\scrollmenu";

@@ -16,14 +16,9 @@ _lootableBodies = [];
 
 // Loot bodies
 {
-	_body = _x;
-
-	_weapons = weaponsItems _body;
-	_equipmentWithInventory = [
-		uniformContainer _body,
-		vestContainer _body,
-		backpackContainer _body
-	];
+	_body = _x;	
+	
+	// Loot all items except weapons, backpack, and items inside uniform, vest, or backpack
 	_items = [
 		uniform _body, // Not inventory
 		vest _body, // Not inventory
@@ -35,15 +30,31 @@ _lootableBodies = [];
 	// Includes binoculars / rangefinder WITHOUT batteries
 	_items append (assignedItems _body);
 	_items append (binocularMagazine _body); // Get batteries
-
-	// Loot all items, except weapons and items inside uniform, vest, or backpack
 	{ _vehicle addItemCargoGlobal [_x, 1]; } forEach _items;
+
+
 	// Loot content inside uniform, vest, or backpack
-	{ [_x, _vehicle] call LootToVehicle_fnc_lootContainer; } forEach _equipmentWithInventory;
+	// These have to be looted and emptied before weaponsItems is used.
+	// That's because weaponsItems also includes weapons inside backpacks etc.
+	_equipmentWithInventory = [
+		uniformContainer _body,
+		vestContainer _body,
+		backpackContainer _body
+	];
+	{ 
+		[_x, _vehicle] call LootToVehicle_fnc_lootContainer;
+		// Have to empty the container, otherwise weapons inside will get looted twice.
+		_x call LootToVehicle_fnc_clearContainer;
+	} forEach _equipmentWithInventory;
+
+
 	// Loot weapons with current attachments and ammo
 	// Primary and secondary (launcher) usually drop to the ground,
 	// and will not be looted from the body.
+	_weapons = weaponsItems _body;
 	{ _vehicle addWeaponWithAttachmentsCargoGlobal [_x, 1]; } forEach _weapons;
+
+
 	// Add backpack to vehicle
 	// Some backpacks contain items by default when created, remove those items later.
 	_backpackClass = backpack _body;

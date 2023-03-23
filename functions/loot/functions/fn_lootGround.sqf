@@ -22,10 +22,7 @@ _invisibleContainers append (_vehicle nearObjects ["WeaponHolder", _lootDistance
 	} forEach _equipmentWithInventory;
 
 	//Remove looted items from the gorund
-	clearWeaponCargoGlobal _container;
-	clearMagazineCargoGlobal _container;
-	clearItemCargoGlobal _container;
-	clearBackpackCargoGlobal _container;
+	_container call LootToVehicle_fnc_clearContainer
 } forEach _invisibleContainers;
 
 count _invisibleContainers; // Return
