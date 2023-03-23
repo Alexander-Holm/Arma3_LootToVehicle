@@ -1,10 +1,11 @@
-params ["_vehicle", "_lootDistance"];
+_vehicle = _this; // Parameter
 
 // Keep track of how many backpacks are already in the vehicle,
 // so that their inventory is not deleted.
 _previousBackpacksCount = count backpackCargo _vehicle;
 
 // Loot
+_lootDistance = 30;
 _countBodies = [_vehicle, _lootDistance] call LootToVehicle_fnc_lootBodies;
 _countGround = [_vehicle, _lootDistance] call LootToVehicle_fnc_lootGround;
 
