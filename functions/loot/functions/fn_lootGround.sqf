@@ -1,13 +1,22 @@
 params["_vehicle", "_lootDistance"];
 
+// Find loot
 _invisibleContainers = []; 
 // Loot from bodies, usually primary weapon and launcher
 _invisibleContainers append (_vehicle nearObjects ["WeaponHolderSimulated", _lootDistance]);
 // Loot dropped on the ground.
 // Despite the name, WeaponHolder contains all kinds of items, not just weapons.
 _invisibleContainers append (_vehicle nearObjects ["WeaponHolder", _lootDistance]);
+
+// Loot
+_lootedCount = 0;
+_lootedAll = true;
 {
 	_container = _x;	
+
+	if(_vehicle call LootToVehicle_fnc_isVehicleFull) exitWith{
+		_lootedAll = false;
+	};	
 	
 	// Loot all items, except those inside uniform, vest, or backpack
 	[_container, _vehicle] call LootToVehicle_fnc_lootContainer;
@@ -22,7 +31,9 @@ _invisibleContainers append (_vehicle nearObjects ["WeaponHolder", _lootDistance
 	} forEach _equipmentWithInventory;
 
 	//Remove looted items from the gorund
-	_container call LootToVehicle_fnc_clearContainer
+	_container call LootToVehicle_fnc_clearContainer;
+
+	_lootedCount = _lootedCount + 1;
 } forEach _invisibleContainers;
 
-count _invisibleContainers; // Return
+[_lootedCount, _lootedAll]; // Return

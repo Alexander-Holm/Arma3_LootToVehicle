@@ -15,8 +15,14 @@ _lootableBodies = [];
 } forEach _allDead;
 
 // Loot bodies
+_lootedCount = 0;
+_lootedAll = true;
 {
 	_body = _x;	
+
+	if(_vehicle call LootToVehicle_fnc_isVehicleFull) exitWith{
+		_lootedAll = false;
+	};	
 	
 	// Loot all items except weapons, backpack, and items inside uniform, vest, or backpack
 	_items = [
@@ -65,6 +71,8 @@ _lootableBodies = [];
 	
 	// Remove all items from body
 	_body setUnitLoadout _EMPTY_LOADOUT;
+
+	_lootedCount = _lootedCount +1;
 } forEach _lootableBodies;
 
-count _lootableBodies; // Return
+[_lootedCount, _lootedAll]; // Return
