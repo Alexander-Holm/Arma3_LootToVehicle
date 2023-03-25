@@ -4,13 +4,14 @@
 
 
 _category = "Looting";
+// Loot settings are global set by server
 [
-    "LootToVehicle_IgnoreCargoLoad",
-    "CHECKBOX",
-    ["Ignore vehicle inventory capacity", "Allows an unlimited amount of items to be looted"],
+    "LootToVehicle_LootDistance",
+    "SLIDER",
+    ["Looting distance", "Distance from vehicle in meters"],
     ["Loot To Vehicle", _category],
-    false,
-    1
+    [10, 100, 30, 0, false],
+    1 // Global setting
 ] call CBA_fnc_addSetting;
 [
     "LootToVehicle_CargoLoadMultiplier",
@@ -21,32 +22,12 @@ _category = "Looting";
     1
 ] call CBA_fnc_addSetting;
 [
-    "LootToVehicle_LootDistance",
-    "SLIDER",
-    ["Looting distance", "Distance from vehicle in meters"],
-    ["Loot To Vehicle", _category],
-    [10, 100, 30, 0, false],
-    1
-] call CBA_fnc_addSetting;
-
-
-// NOT IMPLEMENTED
-_category = "Notifications - NOT IMPLEMENTED";
-[
-    "LootToVehicle_NotificationDuration",
-    "SLIDER",
-    ["Duration", "How long a notification stays on screen"],
-    ["Loot To Vehicle", _category],
-    [1, 10, 5, 0, false],
-    0
-] call CBA_fnc_addSetting;
-[
-    "LootToVehicle_NotificationSound",
+    "LootToVehicle_IgnoreCargoLoad",
     "CHECKBOX",
-    ["Sound", "Toggle sound for when notifications appear and disappear"],
+    ["Ignore vehicle inventory capacity", "Allows an unlimited amount of items to be looted"],
     ["Loot To Vehicle", _category],
-    true,
-    0
+    false,
+    1
 ] call CBA_fnc_addSetting;
 
 
