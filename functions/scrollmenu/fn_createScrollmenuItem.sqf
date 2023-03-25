@@ -20,9 +20,9 @@ _shortcut = "";
 // Condition is evaluated every frame.
 // addAction wants the condition as a string.
 // _target is the player and is passed to the condition by addAction.
-_showCondition = "vectorMagnitude velocity _target < 1";
+_condition = "vectorMagnitude velocity _target < 0.1";
 
-_actionId = _unit addAction [_title, _onScrollmenuClick, _arguments, _priority, _showWindow, _hideOnUse, _shortcut, _showCondition];
+_actionId = _unit addAction [_title, _onScrollmenuClick, _arguments, _priority, _showWindow, _hideOnUse, _shortcut, _condition];
 // Display an icon in the middle of the screen
 _unit setUserActionText [_actionId, _title, _icon];
 // Set actionId as a variable on the player so that the action can be removed later
