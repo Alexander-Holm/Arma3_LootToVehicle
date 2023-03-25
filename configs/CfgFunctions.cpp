@@ -26,6 +26,12 @@ class CfgFunctions
             file = "LootToVehicle\functions\scrollmenu";
             class createScrollmenuItem{};
             class removeScrollmenuItem{};
+            class updateScrollmenuItem{};
+        };
+        class ScrollmenuComponents{
+            file = "LootToVehicle\functions\scrollmenu\components";
+            class scrollmenuTitle{};
+            class scrollmenuIcon{};
         };
     };
 };

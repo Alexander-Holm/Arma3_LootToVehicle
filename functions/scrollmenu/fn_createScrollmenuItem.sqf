@@ -1,8 +1,8 @@
 params["_unit", "_vehicle"];
 
-_color = "#d6ffe0";
-_title = format["<t color='%1'>Loot to vehicle</t>", _color];
-_icon = format["<img color='%1' size='2' image='a3\ui_f\data\igui\cfg\actions\loadvehicle_ca.paa' />", _color];
+_color = LootToVehicle_ScrollmenuColor call BIS_fnc_colorRGBtoHTML;
+_title = _color call LootToVehicle_fnc_scrollmenuTitle;
+_icon = _color call LootToVehicle_fnc_scrollmenuIcon;
 _onScrollmenuClick = {
 	_vehicle = _this select 3; // arguments passed down from addAction	
 	_vehicle call LootToVehicle_fnc_lootStart;
