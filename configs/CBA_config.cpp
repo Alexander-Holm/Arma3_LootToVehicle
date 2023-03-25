@@ -1,7 +1,7 @@
 class Extended_PreInit_EventHandlers {
     class LootToVehicle {
         // CBA automatically keeps track of saved settings values
-        init = "call compile preprocessFileLineNumbers 'LootToVehicle\settings.sqf'";
+        init = "call compile preprocessFileLineNumbers 'LootToVehicle\configs\settings.sqf'";
     };
 };
 class Extended_PostInit_EventHandlers {
