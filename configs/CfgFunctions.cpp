@@ -11,12 +11,17 @@ class CfgFunctions
     {
         // Arma 3 function-viewer categories
         // Have to use backslash in file-/folderpath
-        class Loot{
-            class lootStart{ file = "LootToVehicle\functions\loot\fn_lootStart.sqf"; };
-
-            file = "LootToVehicle\functions\loot\functions";
+        class Main{
+            class main{ file = "LootToVehicle\main.sqf"; };
+        }
+        class Looting{
+            file = "LootToVehicle\functions\looting"; 
+            class lootStart{};
             class lootBodies{};
             class lootGround{};            
+        };
+        class LootingHelpers{
+            file = "LootToVehicle\functions\looting\functions";                    
             class emptyAddedBackpacks{};
             class lootContainer{};
             class clearContainer{};
