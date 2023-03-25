@@ -11,6 +11,7 @@ class CfgFunctions
     {
         // Arma 3 function-viewer categories
         // Have to use backslash in file-/folderpath
+        // Files that are not linked explicitly by filepath need to start with fn_
         class Main{
             class main{ file = "LootToVehicle\main.sqf"; };
         }
