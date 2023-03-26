@@ -9,5 +9,6 @@ class CfgPatches
 		name = "Loot To Vehicle";
 		author = "CseRoQ";
         requiredVersion = 2.08;
+        requiredAddons[] = { "cba_main" };       
 	};
 };
