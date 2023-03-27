@@ -1,6 +1,6 @@
-#include "configs\CBA_config.cpp"
-#include "configs\CfgFunctions.cpp"
-#include "configs\CfgNotifications.cpp"
+#include "configs\cba_config.cpp"
+#include "configs\functions.cpp"
+#include "configs\notifications.cpp"
 
 class CfgPatches
 {
