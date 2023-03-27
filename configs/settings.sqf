@@ -3,8 +3,10 @@
 // https://cbateam.github.io/CBA_A3/docs/files/settings/fnc_addSetting-sqf.html#CBA_fnc_addSetting
 
 _modName = "Loot to vehicle";
-_category = "Looting";
+
+
 // Loot settings are global set by server
+_category = "Looting";
 [
     "LootToVehicle_LootDistance",
     "SLIDER",
