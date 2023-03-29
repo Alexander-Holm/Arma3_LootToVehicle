@@ -55,8 +55,13 @@ _lootedAll = true;
 
 
 	// Loot weapons with current attachments and ammo
-	// Primary and secondary (launcher) usually drop to the ground,
-	// and will not be looted from the body.
+	// Primary and secondary (launcher) usually drop to the ground.
+	// Bodies inside vehicles keep their weapons on them.
+
+	// Remove binoculars since they count as a weapon but have already been looted
+	_body removeWeapon binocular _body;
+	// Weapons inside backpacks etc. should have been removed at this step,
+	// otherwise they will get looted twice.
 	_weapons = weaponsItems _body;
 	{ _vehicle addWeaponWithAttachmentsCargoGlobal [_x, 1]; } forEach _weapons;
 
