@@ -30,14 +30,15 @@ class CfgFunctions
         };
         class Scrollmenu{
             file = "LootToVehicle\functions\scrollmenu";
-            class createScrollmenuItem{};
-            class removeScrollmenuItem{};
-            class updateScrollmenuItem{};
+            class createAction{};
+            class removeAction{};
+            class hasAction{};
+            class updateColor{};
         };
         class ScrollmenuComponents{
             file = "LootToVehicle\functions\scrollmenu\components";
-            class scrollmenuTitle{};
-            class scrollmenuIcon{};
+            class actionTitle{};
+            class actionIcon{};
         };
     };
 };
