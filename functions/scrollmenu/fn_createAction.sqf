@@ -1,8 +1,8 @@
 params["_unit", "_vehicle"];
 
 _color = LootToVehicle_ScrollmenuColor call BIS_fnc_colorRGBtoHTML;
-_title = _color call LootToVehicle_fnc_scrollmenuTitle;
-_icon = _color call LootToVehicle_fnc_scrollmenuIcon;
+_title = _color call LootToVehicle_fnc_actionTitle;
+_icon = _color call LootToVehicle_fnc_actionIcon;
 _onScrollmenuClick = {
 	_vehicle = _this select 3; // arguments passed down from addAction	
 	_vehicle call LootToVehicle_fnc_lootStart;
