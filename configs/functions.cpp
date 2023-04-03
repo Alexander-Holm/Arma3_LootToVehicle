@@ -15,18 +15,29 @@ class CfgFunctions
         class Main{
             class main{ file = "LootToVehicle\main.sqf"; };
         }
-        class Looting{
-            file = "LootToVehicle\functions\looting"; 
-            class lootStart{};
-            class lootBodies{};
-            class lootGround{};            
+        class Looting{            
+            class lootStart{ file = "LootToVehicle\functions\looting\fn_lootStart.sqf"; };
+            file = "LootToVehicle\functions\looting\loot";                      
+            class lootBody{};
+            class lootContainer{};            
         };
-        class LootingHelpers{
-            file = "LootToVehicle\functions\looting\functions";                    
-            class emptyAddedBackpacks{};
-            class lootContainer{};
-            class clearContainer{};
+        class Looting_Find{
+            file = "LootToVehicle\functions\looting\find";
+            class findBodies{};
+            class findGroundItems{};
+        };
+        class Looting_Checks{
+            file = "LootToVehicle\functions\looting\checks";
+            class bodyHasLoot{};
             class isVehicleFull{};
+            class validateContinue{};
+        };
+        class Looting_Other{
+            file = "LootToVehicle\functions\looting\other";
+            class addBackpack{};  
+            class calculateTime{};
+            class clearContainer{};  
+            class createProgressbar{};
         };
         class Scrollmenu{
             file = "LootToVehicle\functions\scrollmenu";
@@ -35,7 +46,7 @@ class CfgFunctions
             class hasAction{};
             class updateColor{};
         };
-        class ScrollmenuComponents{
+        class Scrollmenu_Components{
             file = "LootToVehicle\functions\scrollmenu\components";
             class actionTitle{};
             class actionIcon{};
