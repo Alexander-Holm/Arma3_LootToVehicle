@@ -3,11 +3,11 @@ private _vehicle = _this; // Parameter
 private _status = "LOOT_STATUS_NOT_UPDATED"; // Should always be overwritten
 private _lootDistance = LootToVehicle_LootDistance; // CBA setting
 try {
-	private _position = position _vehicle;
+	if(_vehicle call LootToVehicle_fnc_isVehicleFull) throw "FULL";
 
 	// Find loot
-	private _bodies = [_position, _lootDistance] call LootToVehicle_fnc_findBodies;
-	private _groundItemHolders = [_position, _lootDistance] call LootToVehicle_fnc_findGroundItems;
+	private _bodies = [position _vehicle, _lootDistance] call LootToVehicle_fnc_findBodies;
+	private _groundItemHolders = [position _vehicle, _lootDistance] call LootToVehicle_fnc_findGroundItems;	
 	if(count _bodies < 1 && count _groundItemHolders < 1) throw "NOTHING";
 
 	count _bodies call LootToVehicle_fnc_calculateTime
@@ -21,8 +21,7 @@ try {
 		_invisibleContainer = _x;
 
 		[_invisibleContainer, _vehicle] call LootToVehicle_fnc_lootContainer;
-
-		// TODO: does this loot bodies outside range?
+		
 		_body = getCorpse _invisibleContainer;
 		_itemsBelongToBody = isNull _body == false;
 		if(_itemsBelongToBody) then {
@@ -33,7 +32,6 @@ try {
 			if(_hasLoot) then {
 				[_body, _vehicle, _lootTimeBody] call LootToVehicle_fnc_lootBody;
 			};
-			// TODO: find other weapon
 		};
 	} forEach _groundItemHolders;
 
@@ -59,6 +57,9 @@ switch (_status) do {
 	case "DONE": { ["LootToVehicle_Success"] call BIS_fnc_showNotification };
 	case "NOTHING": { ["LootToVehicle_NotFound", [round _lootDistance]] call BIS_fnc_showNotification };
 	case "FULL": { ["LootToVehicle_Full"] call BIS_fnc_showNotification };
-	case "ABORT": { ["LootToVehicle_Aborted"] call BIS_fnc_showNotification }; 
+	// Notification for aborting by the user is handled by the progressbar.
+	// It cannot be handled like the others because the script can be sleeping (body loot time) when the user aborts. 
+	// That could give a delay of several seconds between the progressbar closing and the notification being shown.
+	case "ABORT": {}; 
 	case default { "Loot to vehicle - Error" hintC (str _status); };
 };
