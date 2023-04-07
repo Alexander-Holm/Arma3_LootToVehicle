@@ -1,6 +1,6 @@
 params ["_position", "_distance"];
 	
-_people = _position nearObjects["Man", _distance];
+_people = _position nearObjects["CAManBase", _distance];
 _vehicles = [];
 _vehicles append (_position nearObjects["LandVehicle", _distance]);
 _vehicles append (_position nearObjects["Air", _distance]);
