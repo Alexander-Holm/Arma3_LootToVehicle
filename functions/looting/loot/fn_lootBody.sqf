@@ -25,7 +25,7 @@ if (_hasBackpack) then {
 	[backpackContainer _body, _vehicle] call LootToVehicle_fnc_lootContainer;
 	// Loot backpack
 	[_vehicle, _backpackClass] call LootToVehicle_fnc_addBackpack;
-	removeBackpack _body;
+	removeBackpackGlobal _body;
 };	
 
 
