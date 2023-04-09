@@ -22,7 +22,7 @@ _category = "Inventory capacity";
     "SLIDER",
     ["Vehicle inventory capacity", "Only affects how much can be added to the vehicle by this mod"],
     [_modName, _category],
-    [0.5, 5, 1, 0, true],
+    [0.5, 5, 1, 0, true], // Show as percentage
     1 // Global setting
 ] call CBA_fnc_addSetting;
 [
@@ -62,5 +62,5 @@ _category = "Scrollmenu";
     [_modName, _category],
     [0.9, 1, 0.68],
     0, // Client setting
-    { call LootToVehicle_fnc_updateScrollmenuItem; }
+    { call LootToVehicle_fnc_updateColor; }
 ] call CBA_fnc_addSetting;
