@@ -22,7 +22,7 @@ class CfgNotifications
         iconPicture = "a3\ui_f\data\map\mapcontrol\taskiconcanceled_ca.paa";
         description = "Vehicle inventory is full";
         color[] = { 1, 0.94, 0.31, 1 }; 
-        duration = 6;
+        duration = 4;
         priority = 10;
     };
     class LootToVehicle_Aborted
@@ -31,7 +31,7 @@ class CfgNotifications
         iconPicture = "a3\ui_f\data\map\mapcontrol\taskiconcanceled_ca.paa";
         description = "Looting aborted";
         color[] = { 1, 0.94, 0.31, 1 }; 
-        duration = 6;
+        duration = 4;
         priority = 10;
     };
     class LootToVehicle_NotFound
